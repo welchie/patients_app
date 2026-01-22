@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Detail</title>
+</head>
+<body>
+<h1>Patient Detail</h1>
+
+<table>
+    <tr><td><label> Family Name: </label></td>
+        <td><label th:text="${patient.familyName}"></label></td>
+    </tr>
+
+    <tr><td><label> Given Name: </label></td>
+        <td><label th:text="${patient.givenName}"></label></td>
+    </tr>
+
+    <tr><td><label> Date of Birth: </label></td>
+        <td><label th:text="${#dates.format(patient.dateOfBirth,'dd-MMM-yyyy')}"></label></td>
+    </tr>
+
+    <tr><td><label> Gender: </label></td>
+        <td><label th:text="${patient.gender}"></label></td>
+    </tr>
+
+    <tr><td><label> Hostpital ID: </label></td>
+        <td><label th:text="${patient.hospitalID}"></label></td>
+    </tr>
+
+    <tr><td><label> NHS Number: </label></td>
+        <td><label th:text="${patient.nhsNumber}"></label></td>
+    </tr>
+
+    <tr><td><label> Invited: </label></td>
+        <td><label th:text="${#temporals.format(patient.whenInvited,'dd-MMM-yyyy hh:mm:ss')}"></label></td>
+    </tr>
+
+    <tr><td><label> Registered: </label></td>
+        <td><label th:text="${#temporals.format(patient.whenRegistered,'dd-MMM-yyyy hh:mm:ss')}"></label></td>
+    </tr>
+
+    <tr><td><label> Discharged: </label></td>
+        <td><label th:text="${#temporals.format(patient.whenDischarged,'dd-MMM-yyyy hh:mm:ss')}">Test</label></td>
+    </tr>
+
+
+</table>
+
+<button><a th:href="@{/}">Return to list</a> </button>
+
+
+
+<h2> Actions</h2>
+<table>
+    <tr>
+        <th align="left">Activity</th>
+        <th align="left">Context</th>
+        <th align="left">Module ID</th>
+        <th align="left">Recorded On</th>
+
+    </tr>
+    <tr th:each="item : ${actions}">
+        <td th:text="${item.activity}"></td>
+        <td th:text="${item.context}"></td>
+        <td th:text="${item.moduleId}"></td>
+        <td th:text="${#temporals.format(item.whenRecorded,'dd-MMM-yyyy hh:mm:ss')}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

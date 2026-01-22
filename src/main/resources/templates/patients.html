@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient List</title>
+</head>
+<body>
+<h1>Patient List</h1>
+<table>
+    <tr>
+        <th align="left">Family Name</th>
+        <th align="left">Given Name</th>
+        <th align="left">Date Of Birth</th>
+        <th align="left">Gender</th>
+        <th align="left">Hospital ID</th>
+        <th align="left">NHS Number</th>
+        <th align="left">Invited</th>
+        <th align="left">Registered</th>
+        <th align="left">Discharged</th>
+        <th align="left">Entity ID</th>
+        <th align="center">Action</th>
+    </tr>
+    <tr th:each="item : ${patients}">
+        <td th:text="${item.familyName}"></td>
+        <td th:text="${item.givenName}"></td>
+        <td th:text="${#dates.format(item.dateOfBirth,'dd-MMM-yyyy')}"></td>
+        <td th:text="${item.gender}"></td>
+        <td th:text="${item.hospitalID}"></td>
+        <td th:text="${item.nhsNumber}"></td>
+
+        <td th:text="${#temporals.format(item.whenInvited,'dd-MMM-yyyy hh:mm:ss')}"></td>
+        <td th:text="${#temporals.format(item.whenRegistered,'dd-MMM-yyyy hh:mm:ss')}"></td>
+        <td th:text="${#temporals.format(item.whenDischarged,'dd-MMM-yyyy hh:mm:ss')}"></td>
+        <td th:text="${item.entityId}"></td>
+
+        <td><a th:href="@{/patientdetail/{id}(id=${item.entityId})}">Get Details</a> </td>
+
+    </tr>
+</table>
+</body>
+</html>
