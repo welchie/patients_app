@@ -44,6 +44,7 @@ public class PatientController {
             return null;
         }
     }
+<<<<<<< HEAD
 
     @GetMapping("patients/filter/{sortCriteria}")
     public List<Patient> getPatientsBy(@PathVariable("sortCriteria") String sortCriteria)
@@ -52,4 +53,6 @@ public class PatientController {
         return patients;
     }
 
+=======
+>>>>>>> 3a5af42 (Updating with latest chages)
 }
