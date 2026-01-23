@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.weewelchie.patients.data.entities.Patient;
 import org.weewelchie.patients.service.PatientService;
-import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.Optional;
 @RestController
 public class PatientController {
 
-    private PatientService patientService;
+    private final PatientService patientService;
 
     public PatientController(PatientService patientService)
     {
@@ -44,7 +43,6 @@ public class PatientController {
             return null;
         }
     }
-<<<<<<< HEAD
 
     @GetMapping("patients/filter/{sortCriteria}")
     public List<Patient> getPatientsBy(@PathVariable("sortCriteria") String sortCriteria)
@@ -52,7 +50,4 @@ public class PatientController {
         List<Patient> patients = new ArrayList<Patient>();
         return patients;
     }
-
-=======
->>>>>>> 3a5af42 (Updating with latest chages)
 }
