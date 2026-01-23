@@ -1,8 +1,6 @@
 package org.weewelchie.patients.data.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,6 +10,7 @@ import java.util.UUID;
 public class Action {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="entity_id", nullable = false)
     private Long entityId;
 

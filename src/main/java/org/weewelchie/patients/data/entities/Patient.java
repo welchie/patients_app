@@ -1,8 +1,7 @@
 package org.weewelchie.patients.data.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.text.SimpleDateFormat;
@@ -19,6 +18,7 @@ Patient entity class
 public class Patient {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="entity_id")
     private Long entityId;
 
