@@ -5,11 +5,8 @@
 </head>
 <body>
 <h1>Patient List</h1>
-<<<<<<< HEAD
-<table>
-=======
+
 <table width="70%">
->>>>>>> 3a5af42 (Updating with latest chages)
     <tr>
         <th align="left">Family Name</th>
         <th align="left">Given Name</th>
@@ -17,18 +14,10 @@
         <th align="left">Gender</th>
         <th align="left">Hospital ID</th>
         <th align="left">NHS Number</th>
-<<<<<<< HEAD
-        <th align="left">Invited</th>
-        <th align="left">Registered</th>
-        <th align="left">Discharged</th>
-        <th align="left">Entity ID</th>
-        <th align="center">Action</th>
-=======
         <th align="left">Invited?</th>
         <th align="left">Registered</th>
         <th align="left">Discharged</th>
         <th align="center">Details</th>
->>>>>>> 3a5af42 (Updating with latest chages)
     </tr>
     <tr th:each="item : ${patients}">
         <td th:text="${item.familyName}"></td>
@@ -37,24 +26,11 @@
         <td th:text="${item.gender}"></td>
         <td th:text="${item.hospitalID}"></td>
         <td th:text="${item.nhsNumber}"></td>
-
-<<<<<<< HEAD
-        <td th:text="${#temporals.format(item.whenInvited,'dd-MMM-yyyy hh:mm:ss')}"></td>
-        <td th:text="${#temporals.format(item.whenRegistered,'dd-MMM-yyyy hh:mm:ss')}"></td>
-        <td th:text="${#temporals.format(item.whenDischarged,'dd-MMM-yyyy hh:mm:ss')}"></td>
-        <td th:text="${item.entityId}"></td>
-
-        <td><a th:href="@{/patientdetail/{id}(id=${item.entityId})}">Get Details</a> </td>
-=======
         <td><img th:if="${item.whenInvited} != null" th:src="@{'./images/invited.jpg'}" width="40px" alt="Yes"></td>
         <td><img th:if="${item.whenRegistered} != null" th:src="@{'./images/registered.jpg'}" width="40px" alt="Yes"/></td>
         <td><img th:if="${item.whenDischarged} != null" th:src="@{'./images/discharged.jpg'}" width="40px" alt="Yesy"/></td>
-
-
         <td><a th:href="@{/patientdetail/{id}(id=${item.entityId})}">
             <img th:src="@{'./images/search.jpg'}" width="40px" alt="Get Details"/></a> </td>
->>>>>>> 3a5af42 (Updating with latest chages)
-
     </tr>
 </table>
 </body>

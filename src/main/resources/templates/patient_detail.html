@@ -31,24 +31,7 @@
         <td><label th:text="${patient.nhsNumber}"></label></td>
     </tr>
 
-<<<<<<< HEAD
-    <tr><td><label> Invited: </label></td>
-        <td><label th:text="${#temporals.format(patient.whenInvited,'dd-MMM-yyyy hh:mm:ss')}"></label></td>
-    </tr>
 
-    <tr><td><label> Registered: </label></td>
-        <td><label th:text="${#temporals.format(patient.whenRegistered,'dd-MMM-yyyy hh:mm:ss')}"></label></td>
-    </tr>
-
-    <tr><td><label> Discharged: </label></td>
-        <td><label th:text="${#temporals.format(patient.whenDischarged,'dd-MMM-yyyy hh:mm:ss')}">Test</label></td>
-    </tr>
-
-
-</table>
-
-<button><a th:href="@{/}">Return to list</a> </button>
-=======
     <tr><td><img th:if="${patient.whenInvited} != null" th:src="@{'/images/invited.jpg'}" width="20px"/><label th:if="${patient.whenInvited} != null" >Invite Date:  </label></td>
         <td><label th:text="${#temporals.format(patient.whenInvited,'dd-MMM-yyyy hh:mm:ss')}"></label></td>
     </tr>
@@ -59,23 +42,11 @@
     <tr><td><img th:if="${patient.whenDischarged} != null" th:src="@{'/images/discharged.jpg'}" width="20px"/><label th:if="${patient.whenDischarged} != null" >Discharged On:  </label></td>
         <td><label th:text="${#temporals.format(patient.whenDischarged,'dd-MMM-yyyy hh:mm:ss')}"></label></td>
     </tr>
-
-
-
-
 </table>
-
 <a th:href="@{/}"> <img th:src="@{'/images/back.jpg'}" width="80px" alt="back"/> </a>
->>>>>>> 3a5af42 (Updating with latest chages)
-
-
 
 <h2> Actions</h2>
-<<<<<<< HEAD
-<table>
-=======
 <table padding="4px" width="50%">
->>>>>>> 3a5af42 (Updating with latest chages)
     <tr>
         <th align="left">Activity</th>
         <th align="left">Context</th>

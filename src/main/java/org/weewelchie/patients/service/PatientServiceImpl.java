@@ -1,5 +1,6 @@
 package org.weewelchie.patients.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.weewelchie.patients.data.entities.Patient;
 import org.weewelchie.patients.repositories.PatientJPARepository;
@@ -40,6 +41,7 @@ public class PatientServiceImpl implements PatientService{
 
     @Override
     public List<Patient> getAll() {
-        return patientJPARepository.findAll();
+
+        return patientJPARepository.findAll(Sort.by(Sort.Direction.ASC, "familyName"));
     }
 }

@@ -1,5 +1,6 @@
 package org.weewelchie.patients.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.weewelchie.patients.data.entities.Action;
 import org.weewelchie.patients.repositories.ActionJpaRepository;
@@ -38,11 +39,14 @@ public class ActionServiceImpl implements ActionService{
 
     @Override
     public List<Action> getAllByPatientEntityId(Long id) {
-        return actionJpaRepository.findAllByPatientEntityId(id);
+
+        List<Action> actions = actionJpaRepository.findAllByPatientEntityId(id, Sort.by(Sort.Direction.ASC, "whenRecorded"));
+        return actions;
     }
 
     @Override
     public List<Action> getAll() {
-        return actionJpaRepository.findAll();
+
+        return actionJpaRepository.findAll(Sort.by(Sort.Direction.ASC, "whenRecorded"));
     }
 }
